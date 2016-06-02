@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--CalendarVC-->
@@ -21,18 +22,41 @@
                                 <rect key="frame" x="0.0" y="135" width="375" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT1-fv-t7V">
+                                <rect key="frame" x="20" y="77" width="278" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="0.20692899214659688" green="0.20692899214659688" blue="0.20692899214659688" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-UV-pww">
+                                <rect key="frame" x="20" y="54" width="278" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zOM-uW-cze"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" red="0.20692899209999999" green="0.20692899209999999" blue="0.20692899209999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LaL-PO-iEj" secondAttribute="trailing" id="6f0-l1-FXb"/>
+                            <constraint firstItem="Z6X-UV-pww" firstAttribute="leading" secondItem="DT1-fv-t7V" secondAttribute="leading" id="A2n-Aj-eK9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z6X-UV-pww" secondAttribute="trailing" constant="61" id="U3Q-4P-EGn"/>
+                            <constraint firstItem="DT1-fv-t7V" firstAttribute="top" secondItem="Z6X-UV-pww" secondAttribute="bottom" constant="2" id="cWY-3v-Do2"/>
                             <constraint firstItem="LaL-PO-iEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lU1-Ni-nq7"/>
                             <constraint firstItem="LaL-PO-iEj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="115" id="uu0-gx-IOE"/>
+                            <constraint firstItem="Z6X-UV-pww" firstAttribute="trailing" secondItem="DT1-fv-t7V" secondAttribute="trailing" id="v5s-3K-7rT"/>
+                            <constraint firstItem="Z6X-UV-pww" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="xK1-fX-AjN"/>
+                            <constraint firstItem="Z6X-UV-pww" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="xXE-t2-EA8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LaL-PO-iEj" secondAttribute="bottom" constant="157" id="yDG-1q-1cV"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="calendarView" destination="LaL-PO-iEj" id="UKL-nZ-LcZ"/>
+                        <outlet property="monthNameLabel" destination="DT1-fv-t7V" id="lKv-gp-wuO"/>
+                        <outlet property="yearLabel" destination="Z6X-UV-pww" id="1CB-An-LxS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

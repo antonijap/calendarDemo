@@ -9,10 +9,15 @@
 import UIKit
 import JTAppleCalendar
 import SwiftDate
+import RealmSwift
 
 class CalendarVC: UIViewController {
     
+    let userData = UserData()
+    let today = NSDate.today()
     
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var monthNameLabel: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
 
     override func viewDidLoad() {
@@ -23,9 +28,12 @@ class CalendarVC: UIViewController {
         calendarView.cellInset = CGPoint(x: 0, y: 0)
         calendarView.firstDayOfWeek = .Monday
         calendarView.allowsMultipleSelection = true
-        
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        calendarView.scrollToDate(today)
+    }
 }
 
 extension CalendarVC: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate  {
@@ -52,5 +60,12 @@ extension CalendarVC: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate
     func calendar(calendar: JTAppleCalendarView, didDeselectDate date: NSDate, cell: JTAppleDayCellView?, cellState: CellState) {
         let cell = (cell as! CellView)
         cell.cellSelectionChanged(cellState)
+    }
+    
+    func calendar(calendar: JTAppleCalendarView, didScrollToDateSegmentStartingWithdate startDate: NSDate, endingWithDate endDate: NSDate) {
+        let monthName = startDate.monthName
+        let year = startDate.year
+        monthNameLabel.text = monthName
+        yearLabel.text = "\(year)"
     }
 }
